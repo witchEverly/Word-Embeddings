@@ -115,3 +115,9 @@ $$
     \end{array}
 \end{equation}
 $$
+
+We could use dimensionality reduction techniques to reduce the number of features to 2, to create a visual representation of our matrix. We can see that the vectors that are closer to each other are 
+
+![tsne-plot](images/tsne_plot.png)
+
+
