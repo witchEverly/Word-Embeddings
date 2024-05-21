@@ -119,3 +119,66 @@ $$
 We could use dimensionality reduction techniques to reduce the number of features to 2, to create a visual representation of our matrix. We can see that the vectors that are closer to each other are 
 
 ![tsne-plot](images/tsne_plot.png)
+
+
+### Embedding Techniques
+
+This notebook will cover the following word embedding techniques:
+- Word2Vec
+- Doc2Vec
+- GloVe
+- FastText
+- ELMo
+
+The main goal of these techniques is to learn dense vector representations of words that capture semantic and syntactic properties. 
+
+### Key Ideas Behind Word Embeddings
+
+1. **Representation of Words in Vector Space:**
+   - All these techniques aim to represent words (and sometimes larger text units) as vectors in a continuous vector space. This allows for the capture of semantic relationships and similarities between words.
+
+2. **Capturing Semantic Similarity:**
+   - These models are designed to capture semantic similarity between words. Words that are used in similar contexts or have similar meanings end up with similar vector representations.
+
+3. **Dimensionality Reduction:**
+   - Each technique reduces the high-dimensional, sparse representation of words (e.g., one-hot encoding) to a lower-dimensional, dense vector representation. This makes the vectors more computationally manageable and useful for various downstream tasks.
+
+4. **Contextual Information:**
+   - All these methods use context to some extent to learn word representations. The context can be local (e.g., surrounding words in a sentence) or global (e.g., co-occurrence across a corpus).
+
+5. **Training Objectives:**
+   - Each model has a specific training objective designed to optimize the vector representations. Whether it’s predicting words from their context, factorizing a co-occurrence matrix, or more complex objectives like masked language modeling, the goal is to learn vectors that are useful for capturing semantic and syntactic properties.
+
+6. **Handling Large Corpora:**
+   - These models are designed to scale to large text corpora. They use various optimization techniques and architectures to efficiently process and learn from massive amounts of text data.
+
+7. **Downstream Task Performance:**
+   - The learned embeddings can be used as features for various natural language processing tasks such as text classification, named entity recognition, sentiment analysis, and machine translation. Improved embeddings typically lead to better performance on these tasks.
+
+### High-Level Description of Techniques
+
+1. **Word2Vec, Doc2Vec, and FastText:**
+   - **Local Context:** These models focus on predicting words based on their local context within a fixed window.
+   - **Neural Network-based:** They use neural network architectures (e.g., shallow feedforward networks) for learning embeddings.
+   - **Efficiency:** They are designed for efficient training using techniques like negative sampling and hierarchical softmax.
+
+2. **GloVe:**
+   - **Global Context:** Utilizes global word co-occurrence statistics across the entire corpus.
+   - **Matrix Factorization:** Factorizes a large sparse matrix constructed from word co-occurrence counts.
+
+3. **ELMo and BERT:**
+   - **Deep Contextualized Representations:** These models produce embeddings that are context-dependent, changing based on the sentence they are used in.
+   - **Pre-trained Language Models:** Both are pre-trained on large text corpora using unsupervised objectives and can be fine-tuned for specific downstream tasks.
+   - **Transformers and LSTMs:** ELMo uses LSTMs, while BERT uses transformer architectures, both capable of capturing long-range dependencies in text.
+
+### Overview Table
+
+| Technique   | Context Type         | Training Objective          | Architecture             | Unique Feature                           |
+|-------------|----------------------|-----------------------------|--------------------------|------------------------------------------|
+| **Word2Vec**| Local (window-based) | Predict words (CBOW/Skip-gram)| Shallow neural network   | Predictive, efficient for large data     |
+| **Doc2Vec** | Local + Document     | Predict words + doc context | Shallow neural network   | Embeds entire documents                  |
+| **GloVe**   | Global               | Factorize co-occurrence matrix| Matrix factorization    | Captures global word statistics          |
+| **FastText**| Local + Subword      | Predict words (CBOW/Skip-gram)| Shallow neural network   | Handles out-of-vocabulary words          |
+| **ELMo**    | Sentence-level       | Language modeling           | Bidirectional LSTM       | Contextualized, deep representations     |
+| **BERT**    | Sentence-level       | Masked language modeling    | Transformer              | Bidirectional context, versatile fine-tuning |
+
