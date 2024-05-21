@@ -48,9 +48,7 @@ $$
 
 ## The Problem with One-hot Encoding
 
-You may think this is a very inefficient way to represent words due to the sparsity and the high dimensionality of the vectors. A very large matrix would be very slow to train and very slow to run when it comes to a neural network.
-
-**But that isn't the only reason why one-hot encoding is inefficient.** The main reason is that one-hot encoding doesn't capture the similarity between words. This is because the Euclidean distance between any two one-hot vectors is the same, and the cosine similarity between any two one-hot vectors is 0.
+You may think this is a very inefficient way to represent words due to the sparsity and the high dimensionality of the vectors. However, this isn't actually why we are concerned. The actual concern is that one-hot encoding doesn't capture the similarity between words. This is because the Euclidean distance between any two one-hot vectors is the same, and the cosine similarity between any two one-hot vectors is 0.
 
 Let's demonstrate this mathematically:
 
@@ -100,9 +98,9 @@ We have shown that the cosine similarity between any two one-hot vectors is 0. W
 
 ## Feature Representation
 
-The solution to this problem is to represent words as dense vectors. This is where word embeddings come in. The basic idea behind word embeddings is to represent words in a continuous vector space. This is done by representing each word as a dense vector of a fixed dimensionality. For each dimension, we learn a real-valued number that represents a feature of the word.
+The solution to this problem is to represent words as dense vectors. This is where word embeddings come in. The basic idea behind word embeddings is to represent words in a continuous vector space. The basic idea is that similar words will have similar real-valued numbers. This is done by representing each word as a dense vector of a fixed dimensionality. For each dimension, we learn a real-valued number that represents a feature of the word.
 
-This is a dummy example of a word embedding matrix with 3 words and 4 features:
+This is a dummy example of a word embedding matrix with five words and four features:
 
 $$
 \begin{equation}
@@ -111,7 +109,9 @@ $$
         \hline
         \text{cat} & 0.1 & 0.9 & 0.4 & 0.4 \\
         \text{dog} & 0.2 & 0.8 & 0.7 & 0.8 \\
-        \text{fish} & 0.9 & 0.5 & 0.2 & 0.9
+        \text{fish} & 0.9 & 0.5 & 0.2 & 0.9 \\
+        \text{door} & 0.3 & 0.1 & 0.6 & 0.2 \\
+        \text{window} & 0.4 & 0.2 & 0.3 & 0.1
     \end{array}
 \end{equation}
 $$
@@ -119,5 +119,3 @@ $$
 We could use dimensionality reduction techniques to reduce the number of features to 2, to create a visual representation of our matrix. We can see that the vectors that are closer to each other are 
 
 ![tsne-plot](images/tsne_plot.png)
-
-
