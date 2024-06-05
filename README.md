@@ -180,5 +180,5 @@ The main goal of these techniques is to learn dense vector representations of wo
 | **GloVe**   | Global               | Factorize co-occurrence matrix| Matrix factorization    | Captures global word statistics          |
 | **FastText**| Local + Subword      | Predict words (CBOW/Skip-gram)| Shallow neural network   | Handles out-of-vocabulary words          |
 | **ELMo**    | Sentence-level       | Language modeling           | Bidirectional LSTM       | Contextualized, deep representations     |
-| **BERT**    | Sentence-level       | Masked language modeling    | Transformer              | Bidirectional context, versatile fine-tuning |
+| **BERT**    | Sentence-level       | Masked language modeling    | Transformer              | Bidirectional context, versatile fine-tuning | 
 
